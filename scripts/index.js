@@ -48,3 +48,14 @@ let kookaburra = new ZooAnimals("Kookaburra", "20 years", "bird", "bird", "Insec
 let  yellowTailedCockatoo = new ZooAnimals("Yellow Tailed Cockatoo", "41 years", "bird", "Fruit, seeds and other plant material", "description", "65cm", "900 grams", "Southeast Australia")
 
 let zooArray = [echidna, tasmanianDevil, quokka, frillNeckLizard, hawksbillTurtle, perentie, cassowary, kookaburra, yellowTailedCockatoo]
+
+let animalGroup = ["bird", "mammal", "reptile"]
+let filteredGroup = {} 
+
+animalGroup.forEach(group => {
+  filteredGroup[group] = zooArray.filter(animal => animal.group === group)
+})
+
+// console.log(filteredGroup.bird)
+
+
