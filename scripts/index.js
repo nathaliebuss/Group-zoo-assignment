@@ -61,11 +61,16 @@ let zooArray = [
   yellowTailedCockatoo
 ]
 
-let animalGroup = ["bird", "mammal", "reptile"]
-let filteredGroup = {} 
+let animalGroup = ["bird", "mammal", "reptile"] 
 
-animalGroup.forEach(group => {
-filteredGroup[group] = zooArray.filter(animal => animal.group === group)
-})
+animalGroup.forEach(group => { zooArray.filter(animal => animal.group === group)})
 
-
+zooArray.forEach(animal => {
+  let groupDiv = document.querySelector(`.${animal.group}`);
+  if (groupDiv) {
+    let animalGroup = document.createElement("div");
+    animalGroup.classList.add("animal");
+    animalGroup.textContent = animal.name;
+    groupDiv.appendChild(animalGroup);
+  }
+});
