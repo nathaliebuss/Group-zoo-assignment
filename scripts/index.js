@@ -59,7 +59,6 @@ let zooArray = [
   yellowTailedCockatoo
 ]
 
-
 zooArray.forEach(animal => {
   let groupDiv = document.querySelector(`.${animal.group}`);
   if (groupDiv) {
