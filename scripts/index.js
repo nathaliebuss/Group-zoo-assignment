@@ -1,13 +1,14 @@
 const SIDEBAR = document.querySelector(".side_bar")
 
 let menuLabels = [
-  {class: "birds", text: "Birds:"},
-  {class: "mammals", text: "Mammals:"},
-  {class: "reptiles", text: "Reptiles:"}
+  {group: "birds", text: "Birds:"},
+  {group: "mammals", text: "Mammals:"},
+  {group: "reptiles", text: "Reptiles:"}
 ]
 
-menuLabels.forEach(({class: groupName, text}) => {
+menuLabels.forEach(({group: groupName, text}) => {
   let animalGroup = document.createElement("div");
+  animalGroup.classList.add(groupName)
   animalGroup.groupName = groupName;
   animalGroup.textContent = text;
   SIDEBAR.appendChild(animalGroup);
@@ -22,6 +23,7 @@ function ZooAnimals(name, lifespan, group, food, description, length, weight, lo
   this.weight = weight,
   this.location = location, 
   this.length = length
+  // this.image =
 }
 
 let echidna = new ZooAnimals("Echidna", "50 years", "mammal", "insects such as ants and termites, beetles, larvae and worms", "Echidnas, also called spiny anteaters, are walking contradictions. They are mammals, but they lay eggs. They are often classified as long- or sort-beaked, but don't have beaks at all, in the traditional sense; they have fleshy noses that can be either on the long side or rather short. They don't really look like true anteaters (Myrmecophaga tridactyla), either, and they are not closely related to them. They are spiny, though; their bodies are covered with hollow, barbless quills. Echidnas are monotremes, egg-laying mammals. The only other living monotreme is the platypus.",
@@ -50,8 +52,10 @@ let  yellowTailedCockatoo = new ZooAnimals("Yellow Tailed Cockatoo", "41 years",
 let zooArray = [
   echidna, 
   tasmanianDevil, 
-  quokka, frillNeckLizard, 
-  hawksbillTurtle, perentie, 
+  quokka, 
+  frillNeckLizard, 
+  hawksbillTurtle, 
+  perentie, 
   cassowary, 
   kookaburra, 
   yellowTailedCockatoo
@@ -61,9 +65,12 @@ let animalGroup = ["bird", "mammal", "reptile"]
 let filteredGroup = {} 
 
 animalGroup.forEach(group => {
-  filteredGroup[group] = zooArray.filter(animal => animal.group === group)
+filteredGroup[group] = zooArray.filter(animal => animal.group === group)
 })
 
+// filteredGroup.bird.forEach() => {
+//   document.querySelector(".")
+// } 
 // console.log(filteredGroup.bird)
 
 
