@@ -8,7 +8,7 @@ let menuLabels = [
 
 menuLabels.forEach(({group: groupName, text}) => {
   let animalGroup = document.createElement("div");
-  animalGroup.classList.add(groupName)
+  animalGroup.classList.add("group_item",groupName)
   animalGroup.groupName = groupName;
   animalGroup.textContent = text;
   SIDEBAR.appendChild(animalGroup);

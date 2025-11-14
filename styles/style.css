@@ -1,9 +1,9 @@
 :root {
-  --background-primary: #ADC178;
-  --background-secondary: #F0EAD2;
-  --background-tertiary: #DDE5B6;
-  --background-quaternary: #A98467;
-  --color-primary: #6C584C;
+  --background-primary: #adc178;
+  --background-secondary: #f0ead2;
+  --background-tertiary: #dde5b6;
+  --background-quaternary: #a98467;
+  --color-primary: #6c584c;
 }
 
 * {
@@ -69,7 +69,6 @@ body {
 
 main {
   display: flex;
-  width: 100vw;
   flex-direction: column;
   flex-grow: 1;
 }
@@ -86,6 +85,7 @@ main {
 .sidebar {
   display: flex;
   flex-direction: column;
+  height: fit-content;
   padding: 28px;
   color: var(--color-primary);
   text-align: center;
@@ -94,6 +94,24 @@ main {
   border-style: solid;
   margin: 16px;
   border-radius: 20px;
+}
+
+.sidebar_item {
+  margin: 0;
+  padding: 9px 5px;
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.active_item {
+  text-decoration: underline;
+}
+
+.intro_text {
+  font-size: 1.5rem;
+  padding: 8px;
 }
 
 .footer {
