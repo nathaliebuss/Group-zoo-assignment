@@ -27,7 +27,6 @@ body {
 }
 
 .header {
-  grid-area: header;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -119,5 +118,4 @@ main {
   color: var(--background-secondary);
   text-align: center;
   padding: 16px;
-  grid-area: footer;
 }
