@@ -17,16 +17,9 @@ let mammalArray = [echidna, tasmanianDevil, quokka]
 
 let sideMammals = document.querySelector(".sidebar")
 
-console.log(mammalArray[1]) 
-
 mammalArray.forEach (animal =>  {
    let mammalsGroup = document.createElement("div")
     mammalsGroup.className = "sidebar_item"
     mammalsGroup.textContent = animal.name
     sideMammals.appendChild(mammalsGroup)
-
-    console.log(mammalArray[1])
-    
 })
-
-console.log(mammalArray)
