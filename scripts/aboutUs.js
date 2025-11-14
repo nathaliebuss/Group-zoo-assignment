@@ -16,23 +16,25 @@ let brianna = new teamMate('Brianna', 'Fraser', 'Brianna is from China', 'Briann
 let nathalie = new teamMate('Nathalie', 'Buss', 'Nathalie is from Sweden', 'Nathalie became a part of Quokka zoo after falling into the Perentie exhibit and being too afraid to climb out. You will find her desperately avoiding the Perentie, who have become indifferent to her presence. Since she has been here for so long, we decided to make her part of the team.', 'Nathalie has a cat.')
 let defaultMessage = new teamMate('Team', 'Members', '', 'Our team has members from all over the world! We work together to maintain a healthy and safe environment for all of the animals that we are responsible for. Our goal is to present the most interesting species in Australia in an engaging and authentic way to everyone who steps through our gate.', '')
 
-let teamMates = [callum, seth, clara, brianna, nathalie]
+let teamMates = [nathalie, brianna, callum, clara, seth]
 
 ////Functions////
 
 ///adds each key-value pair with the key as the classname and the value as the text content, also adds title///
 const appendMember = (member) => {
-  let memberArea = document.querySelector('.team_members')
+  let memberArea = document.querySelector('.welcome_message')
   //resets the content//
   memberArea.innerHTML = ''
-  let subtitle = document.querySelector('.subtitle')
+  let subtitle = document.createElement('h1')
+  subtitle.className = 'subtitle'
   subtitle.textContent = `${member.first} ${member.last}`
+  memberArea.appendChild(subtitle)
   //converts to an array, and skips the first and last name [0 and 1]//
   let memberPairs = Object.entries(member)
   for (let i = 2; i < memberPairs.length; i++) {
     let memberData = document.createElement('div')
     memberData.textContent = memberPairs[i][1]
-    memberData.className = memberPairs[i][0]
+    memberData.className = (memberPairs[i][0] + ' intro_text') //We might end up changing this class name//
     memberArea.appendChild(memberData)
   }
   listTeamMates(member)
@@ -44,13 +46,13 @@ const listTeamMates = (active = defaultMessage) => {
   //resets the content//
   sidebar.innerHTML = ''
   teamMates.forEach(member => {
-    let teamMate = document.createElement('div')
+    let teamMate = document.createElement('h2')
     teamMate.textContent = member.first
-    teamMate.className = 'sidebarItem'
+    teamMate.className = 'sidebar_item'
     //Adds active class and event listener to go to default message if clicked again//
     if (member === active){
     teamMate.addEventListener('click', () => {appendMember(defaultMessage)}, {once:true})
-    teamMate.className = 'sidebarItem active'
+    teamMate.className = 'sidebar_item active_item'
     } else {
     teamMate.addEventListener('click', () => {appendMember(member)}, {once:true})
     }
