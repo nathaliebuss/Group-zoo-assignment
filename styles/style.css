@@ -48,7 +48,7 @@ body {
 .navigation {
   display: flex;
   flex-direction: row;
-  padding: 0 100px 0 0;
+  padding: 0 3% 0 0;
 }
 
 .nav_button {
@@ -62,18 +62,20 @@ body {
 .search_container {
   height: fit-content;
   width: fit-content;
-  margin: 18px;
-  padding: 0 8px;
+  margin: 18px 3%;
+  padding: 0 10px;
   background-color: var(--background-secondary);
   opacity: .7;
-  border-radius: 13px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   transition: all .4s;
 }
 
+.search_container:focus-within,
 .search_container:hover {
   opacity: .9;
+  transform: scale(1.06)
 }
 
 .search {
@@ -90,17 +92,13 @@ body {
 }
 
 .search_box {
-  width: 150px;
+  width: 165px;
   margin: 4px;
   padding: 0;
   border: none;
   background: transparent;
   font-size: 1.2rem;
   outline: none;
-}
-
-.search_container:focus-within {
-  opacity: .9;
 }
 
 .background_image {
@@ -149,6 +147,11 @@ main {
   font-size: 1.5rem;
   text-align: left;
   cursor: pointer;
+  transition: all .4s;
+}
+
+.sidebar_item:hover {
+  transform: scale(1.06);
 }
 
 .active_item {
