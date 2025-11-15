@@ -73,6 +73,10 @@ let welcome = document.querySelector(".welcome_container");
 let originalContent = welcome.innerHTML;
 let selectedAnimal = "";
 
+function maxLength (description) {
+  return description.slice(0,200) + (description.length > 200 ? "..." : "")
+}
+
 zooArray.forEach(animal => {
   let selectedDiv = document.querySelector(`.${animal.name.replace(/\s+/g, "-")}`)
 
@@ -84,8 +88,8 @@ zooArray.forEach(animal => {
         welcome.innerHTML = `
           <h1>${animal.name}</h1>
           <p> Diet: ${animal.food}</p>
-          <p>${animal.description}</p>
-          <img src ="${animal.image}">`;
+          <p>${maxLength(animal.description)}</p>
+          <img src="${animal.image}">`;
         selectedAnimal = animal.name;
       }
   })
