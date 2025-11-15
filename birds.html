@@ -11,64 +11,71 @@
 
 <body>
   <header class="header">
-    <h1 class="header_title"></h1>
-  </header>
-  <nav class="navigation">
-    <ul class="nav_button"><a href="index.html">Home</a></ul>
-    <ul class="nav_button"><a href="birds.html">Birds</a></ul>
-    <ul class="nav_button"><a href="mammals.html">Mammals</a></ul>
-    <ul class="nav_button"><a href="reptiles.html">Reptiles</a></ul>
-    <ul class="nav_button"><a href="aboutUs.html">About Us</a></ul>
+    <div class="header_logo">
+      <img src="./images/logo.png" alt="logo" class="header_image" height="150px" width="250px">
+    </div>
+
+    <nav class="navigation">
+      <a href="index.html" class="nav_button">Home</a>
+      <a href="birds.html" class="nav_button">Birds</a>
+      <a href="mammals.html" class="nav_button">Mammals</a>
+      <a href="reptiles.html" class="nav_button">Reptiles</a>
+      <a href="aboutUs.html" class="nav_button">About Us</a>
   </nav>
-
-  <div class="side_bar">
-    <h2>Birds</h2>
-    <ul>
-      <li>Cassowary</li>
-      <li>Kookaburra</li>
-      <li>Yellow Tailed Black Cockatoo</li>
-    </ul>
-
-  </div>
+  </header>
   
-  <main class="main_content">
-    <h2 class="subtitle">Our beautiful birds!</h2> <!--add subtitle for description of page i.e mammals-->
+  <main>
+    <div class="background_image"></div>
 
-    <section class="grid-container" id="Birdscontainer">
-      <div class="bird__card">
-        <img src="./images/birds/cassowary.jpg" alt="" bird__imag>
-        <div class="caption">
+    <section class="main_content">
+      <div class="sidebar">
+        <h2>Birds</h2>
+      </div>
+
+      <div class="birds__area" id="Birdsarea">
+        <div class="intro">
+        <h1 class="subtitle">Welcome!</h1>
+        <h2 class="intro_text">Our beautiful birds!</h2>
+        </div>
+ 
+
+        <div class="grid-container">
+          <div class="bird__card">
+          <img src="./images/birds/cassowary.jpg" alt="">
+          <div class="caption">
           <h3>Cassowary</h3>
           <button class="btns">
             read more
           </button>
-        </div>
-      </div>
-
-      <div class="bird__card">
-        <img src="./images/birds/Kookaburra.jpg" alt="" bird__imag>
-        <div class="caption">
-          <h3>Kookaburra</h3>
+          </div>
+          </div>
+          <div class="bird__card">
+          <img src="./images/birds/Kookaburra.jpg" alt="">
+          <div class="caption">
+          <h3>kookaburra</h3>
           <button class="btns">
             read more
           </button>
-        </div>
-      </div>
+          </div>
+          </div>
 
-      <div class="bird__card">
-        <img src="./images/birds/yellow-tailed-black-cockatoo.jpg" alt="" bird__imag>
-        <div class="caption">
+          <div class="bird__card">
+          <img src="./images/birds/yellow-tailed-black-cockatoo.jpg" alt="">
+          <div class="caption">
           <h3>Yellow Tailed Black Cockatoo</h3>
           <button class="btns">
             read more
           </button>
-        </div>
-      </div>
+          </div>
+          </div>
 
+
+          
+        </div>
     </section>
 
     
-    <section class="birds__detail" id="birdsDetail">
+    <div class="birds__detail" id="birdsDetail">
       <div class="detail__list">
 
       </div>
@@ -77,12 +84,11 @@
       <div class="description">
         It’s not hard to imagine that cassowaries are descended from dinosaur ancestors. The largest cassowaries can stand as high as six feet and weigh up to 160 pounds.   These large birds cannot fly, but their extremely powerful legs propel them at great speeds. 
       </div>      
-    </section>
-
-      
+    </div>
+       
   </main>
 
 
-  <footer class="footer"></footer>
+<footer class="footer">&copy;Koala Mates</footer>
 </body>
 </html>

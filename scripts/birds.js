@@ -1,5 +1,20 @@
 
-// birds//
+const SIDEBAR = document.querySelector(".sidebar")
+
+let menuLabels = [
+    {group:"birds",text:"Birds:"}
+]
+
+
+
+
+
+
+
+
+
+
+//我写的
 
 function Bird (name,lifespan,group,food,length,weight,found,image){
     this.name = name ,
