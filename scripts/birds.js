@@ -1,21 +1,4 @@
 
-const SIDEBAR = document.querySelector(".sidebar")
-
-let menuLabels = [
-    {group:"birds",text:"Birds:"}
-]
-
-
-
-
-
-
-
-
-
-
-//我写的
-
 function Bird (name,lifespan,group,food,length,weight,found,image){
     this.name = name ,
     this.lifespan =lifespan,
@@ -24,9 +7,9 @@ function Bird (name,lifespan,group,food,length,weight,found,image){
     this.length =length,
     this.weight = weight,
     this.found = found,
+    this.image =image,
     this.detail = () => `${name} ${lifespan} ${group} ${food} ${length} ${weight} ${found} ${image} `
-}
-
+};
 
 let birdsArray = [
     new Bird
@@ -36,6 +19,7 @@ let birdsArray = [
     "1.7m",
     "44kg",
     "Queensland",
+    "./images/birds/cassowary.jpg"
     ),
 
     new Bird(
@@ -48,21 +32,46 @@ let birdsArray = [
     "./images/birds/kookaburra.jpg"),
 
     new Bird 
-    ("YellowTailedBlackCockatoo","41 years",
+    ("Yellow Tailed Cockatoo","41 years",
     "birds",
     "Fruit, seeds and other plant material",
     "65cm",
     "900 grams",
     "SE Australia",
+    "./images/birds/yellow-tailed-black-cockatoo.jpg"
     )]
 
+const birdsContainer = document.querySelector("#birdsContainer")
 
 birdsArray.forEach(bird => {
-    console.log(bird.detail());
+    const card = document.createElement("div");
+    card.classList.add("bird_card");
+    
+    const img = document.createElement("img");
+
+    img.src = bird.image;
+    img.alt = bird.name;
+
+    const title = document.createElement("h3");
+    title.textContent = bird.name;
+
+    const btn = document.createElement("button");
+    btn.classList.add("read-more");
+    btn.textContent = "read more";
+
+    card.append(img,title,btn);
+    birdsContainer.appendChild(card);
 });
 
+const sidebar = document.querySelector(".sidebar");
 
+birdsArray.forEach(bird => {
+    const item = document.createElement("div");
+    item.classList.add("sidebar_item");
+    item.textContent = bird.name;
 
+    sidebar.appendChild(item);
+})
 
 // let birds = [cassowary,Kookaburra,YellowTailedBlackCockatoo];
 
