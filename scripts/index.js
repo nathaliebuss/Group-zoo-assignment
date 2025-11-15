@@ -26,7 +26,7 @@ function ZooAnimals(name, lifespan, group, food, description, length, weight, lo
   this.image = image
 }
 
-let echidna = new ZooAnimals("Echidna", "50 years", "mammal", "insects such as ants and termites, beetles, larvae and worms", "Echidnas, also called spiny anteaters, are walking contradictions. They are mammals, but they lay eggs. They are often classified as long- or sort-beaked, but don't have beaks at all, in the traditional sense; they have fleshy noses that can be either on the long side or rather short. They don't really look like true anteaters (Myrmecophaga tridactyla), either, and they are not closely related to them. They are spiny, though; their bodies are covered with hollow, barbless quills. Echidnas are monotremes, egg-laying mammals. The only other living monotreme is the platypus.",
+let echidna = new ZooAnimals("Echidna", "50 years", "mammal", "Insects such as ants and termites, beetles, larvae and worms", "Echidnas, also called spiny anteaters, are walking contradictions. They are mammals, but they lay eggs. They are often classified as long- or sort-beaked, but don't have beaks at all, in the traditional sense; they have fleshy noses that can be either on the long side or rather short. They don't really look like true anteaters (Myrmecophaga tridactyla), either, and they are not closely related to them. They are spiny, though; their bodies are covered with hollow, barbless quills. Echidnas are monotremes, egg-laying mammals. The only other living monotreme is the platypus.",
 "76cm", "10kg", "throughout Australia", "./images/mammals/echidna.jpg")
 
 let tasmanianDevil = new ZooAnimals("Tasmanian Devil", "5 years", "mammal", "A predator, they eat meat from other animals such as wallabies and wombats", "The Tasmanian devil (Sarcophilus harrisii) (palawa kani: purinina)[3] is a carnivorous marsupial of the family Dasyuridae. Until recently, it was only found on the island state of Tasmania, but it has been reintroduced to New South Wales in mainland Australia, with a small breeding population. The size of a small dog, the Tasmanian devil became the largest carnivorous marsupial in the world, following the extinction of the thylacine in 1936. It is related to quolls, and distantly related to the thylacine. It is characterised by its stocky and muscular build, black fur, pungent odour, extremely loud and disturbing screech, keen sense of smell, and ferocity when feeding. The Tasmanian devil's large head and neck allow it to generate among the strongest bites per unit body mass of any extant predatory land mammal. It hunts prey and scavenges on carrion.",
@@ -37,7 +37,7 @@ let quokka = new ZooAnimals("Quokka", "10 years", "mammal", "Plant eaters, they 
 
 let frillNeckLizard = new ZooAnimals("Frill-necked Lizard", "20 years", "reptile", "Small insects and spiders", "When this unique creature feels threatened, it rises on its hind legs, opens its yellow-coloured mouth, unfurls the colorful, pleated skin flap that encircles its head, and hisses. If an attacker is unintimidated by these antics, the lizard simply turns tail, mouth and frill open, and bolts, legs splaying left and right. It continues its deliberate run without stopping or looking back until it reaches the safety of a tree.", "90 cm", "1kg", "Northern Australia", "./images/reptiles/frill-necked-lizard.jpg")
 
-let hawksbillTurtle = new ZooAnimals("Hawksbill Turtle", "50 years", "reptile", "other animals(sponges & jellyfish), sea plants", "The Hawksbill Sea Turtle gets its common name from the distinctive mouth, which resembles a bird’s beak. The shell, or carapace, is covered in large overlapping scutes, which are a distinctive brown/green/amber background with lighter brown streaks throughout. At the edge of the carapace they overlap in such a way as to form a serrated edge. The turtle has an elongated head and flippers which have two visible claws on the end. The flippers and head are covered in large green, brown or yellow scales. The average adult female weighs 50 kg and their carapace (shell) is approximately 80 cm in length.", "80cm(carapace)", "50kg", "tropical coasts of Queensland, Northern Territory and Western Australia", "./images/reptiles/hawksbill-turtle.jpg")
+let hawksbillTurtle = new ZooAnimals("Hawksbill Turtle", "50 years", "reptile", "Other animals(sponges & jellyfish), sea plants", "The Hawksbill Sea Turtle gets its common name from the distinctive mouth, which resembles a bird’s beak. The shell, or carapace, is covered in large overlapping scutes, which are a distinctive brown/green/amber background with lighter brown streaks throughout. At the edge of the carapace they overlap in such a way as to form a serrated edge. The turtle has an elongated head and flippers which have two visible claws on the end. The flippers and head are covered in large green, brown or yellow scales. The average adult female weighs 50 kg and their carapace (shell) is approximately 80 cm in length.", "80cm(carapace)", "50kg", "tropical coasts of Queensland, Northern Territory and Western Australia", "./images/reptiles/hawksbill-turtle.jpg")
 
 let perentie = new ZooAnimals("Perentie", "20 years", "reptile", "Carnivore, they eat animals like kangaroos, rabbits, lizards, and  birds", "The perentie (Varanus giganteus) is the largest monitor lizard or goanna native to Australia. It is one of the largest living lizards on earth, after the Komodo dragon, Asian water monitor, crocodile monitor, and intersecting by size with Nile monitor.[3] Found west of the Great Dividing Range in the arid areas of Australia, it is rarely seen, because of its shyness and the remoteness of much of its range from human habitation. The species is considered to be a least-concern species according to the International Union for Conservation of Nature. Its status in many Aboriginal cultures is evident in the totemic relationships, and part of the Ngiṉṯaka dreaming, as well as bush tucker. It was a favoured food item among desert Aboriginal tribes, and the fat was used for medicinal and ceremonial purposes.", "2.5m", "20kg", "Deserts", "./images/reptiles/Perentie.jpg")
 
@@ -71,7 +71,7 @@ zooArray.forEach(animal => {
 
 let welcome = document.querySelector(".welcome_container");
 let originalContent = welcome.innerHTML;
-let selectedAnimal = null;
+let selectedAnimal = "";
 
 zooArray.forEach(animal => {
   let selectedDiv = document.querySelector(`.${animal.name.replace(/\s+/g, "-")}`)
@@ -79,11 +79,11 @@ zooArray.forEach(animal => {
   selectedDiv.addEventListener("click", () => {
     if(selectedAnimal === animal.name) {
       welcome.innerHTML = originalContent;
-      selectedAnimal = null;
+      selectedAnimal = "";
     } else { 
         welcome.innerHTML = `
           <h1>${animal.name}</h1>
-          <p>${animal.food}</p>
+          <p> Diet: ${animal.food}</p>
           <p>${animal.description}</p>
           <img src ="${animal.image}">`;
         selectedAnimal = animal.name;
