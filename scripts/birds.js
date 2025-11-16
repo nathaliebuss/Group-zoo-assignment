@@ -90,7 +90,8 @@ birdsArray.forEach(bird => {
    
 
 function openDetail(bird) {
+    console.log("openDetail:", bird.name);
     detailImage.src = bird.image
-    birdsDetail.style.display = "block"
+    birdsDetail.style.display = "flex"
 }
 
