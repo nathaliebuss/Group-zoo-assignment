@@ -75,7 +75,7 @@ body {
 .search_container:focus-within,
 .search_container:hover {
   opacity: .9;
-  transform: scale(1.06)
+  transform: scale(1.08)
 }
 
 .search {
