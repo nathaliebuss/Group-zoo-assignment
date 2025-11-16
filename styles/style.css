@@ -105,6 +105,29 @@ main {
   cursor: pointer;
 }
 
+.group_item {
+  font-size: 2rem;
+  text-align: left;
+}
+
+.welcome_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome_container img {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page_link {
+  text-decoration: none;
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
 .active_item {
   text-decoration: underline;
 }
