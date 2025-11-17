@@ -160,6 +160,30 @@ main {
   transform: scale(1.06);
 }
 
+.welcome_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.animal_item {
+  font-size: 1.3rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.animal_img {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.page_link {
+  text-decoration: none;
+  text-decoration: underline;
+  color: var(--color-primary);
+}
+
 .active_item {
   text-decoration: underline;
 }
