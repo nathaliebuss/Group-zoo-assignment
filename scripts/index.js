@@ -1,14 +1,14 @@
 const SIDEBAR = document.querySelector(".sidebar")
 
 let menuLabels = [
-  {group: "Bird", text: "Birds:"},
-  {group: "Mammal", text: "Mammals:"},
-  {group: "Reptile", text: "Reptiles:"}
+  { group: "Bird", text: "Birds:" },
+  { group: "Mammal", text: "Mammals:" },
+  { group: "Reptile", text: "Reptiles:" }
 ]
 
-menuLabels.forEach(({group: groupName, text}) => {
+menuLabels.forEach(({ group: groupName, text }) => {
   let animalGroup = document.createElement("div");
-  animalGroup.classList.add("sidebar_item",groupName)
+  animalGroup.classList.add("animal_group", groupName)
   animalGroup.groupName = groupName;
   animalGroup.textContent = text;
   SIDEBAR.appendChild(animalGroup);
@@ -16,18 +16,18 @@ menuLabels.forEach(({group: groupName, text}) => {
 
 function ZooAnimals(name, lifespan, group, food, description, length, weight, location, image) {
   this.name = name,
-  this.lifespan = lifespan,
-  this.group = group,
-  this.food = food,
-  this.description = description,
-  this.weight = weight,
-  this.location = location, 
-  this.length = length,
-  this.image = image
+    this.lifespan = lifespan,
+    this.group = group,
+    this.food = food,
+    this.description = description,
+    this.weight = weight,
+    this.location = location,
+    this.length = length,
+    this.image = image
 }
 
 let echidna = new ZooAnimals("Echidna", "50 years", "Mammal", "Insects such as ants and termites, beetles, larvae and worms", "Echidnas, also called spiny anteaters, are walking contradictions. They are mammals, but they lay eggs. They are often classified as long- or sort-beaked, but don't have beaks at all, in the traditional sense; they have fleshy noses that can be either on the long side or rather short. They don't really look like true anteaters (Myrmecophaga tridactyla), either, and they are not closely related to them. They are spiny, though; their bodies are covered with hollow, barbless quills. Echidnas are monotremes, egg-laying mammals. The only other living monotreme is the platypus.",
-"76cm", "10kg", "throughout Australia", "./images/mammals/echidna.jpg")
+  "76cm", "10kg", "throughout Australia", "./images/mammals/echidna.jpg")
 
 let tasmanianDevil = new ZooAnimals("Tasmanian Devil", "5 years", "Mammal", "A predator, they eat meat from other animals such as wallabies and wombats", "The Tasmanian devil (Sarcophilus harrisii) (palawa kani: purinina)[3] is a carnivorous marsupial of the family Dasyuridae. Until recently, it was only found on the island state of Tasmania, but it has been reintroduced to New South Wales in mainland Australia, with a small breeding population. The size of a small dog, the Tasmanian devil became the largest carnivorous marsupial in the world, following the extinction of the thylacine in 1936. It is related to quolls, and distantly related to the thylacine. It is characterised by its stocky and muscular build, black fur, pungent odour, extremely loud and disturbing screech, keen sense of smell, and ferocity when feeding. The Tasmanian devil's large head and neck allow it to generate among the strongest bites per unit body mass of any extant predatory land mammal. It hunts prey and scavenges on carrion.",
   "70kg", "10kg", "Tasmania", "./images/mammals/tasmania-devil.jpg")
@@ -45,17 +45,17 @@ let cassowary = new ZooAnimals("Cassowary", "20 years", "Bird", "Plant matter, f
 
 let kookaburra = new ZooAnimals("Kookaburra", "20 years", "Bird", "Insects and small animals including snakes, frogs and lizards", "Native to the eucalyptus forests of eastern Australia, the laughing kookaburra is the largest member of the Kingfisher family, with females weighing up to one pound and growing to 43 cm in length. Its beak can reach 10 cm long and is used to snatch a variety of invertebrates and small vertebrates, including the occasional small snake. Since being introduced in western Australia and New Zealand, the kookaburra has angered farmers by preying on their fowl. The laughing kookaburra has dark brown wing plumage and a white head and underside. Dark brown eye stripes run across its face and its upper bill is black. Its reddish-coloured tail is patterned with black bars.", "43cm", "300g", "Australia wide", "./images/birds/Kookaburra.jpg")
 
-let  yellowTailedCockatoo = new ZooAnimals("Yellow Tailed Cockatoo", "41 years", "Bird", "Fruit, seeds and other plant material", "It has a short crest on the top of its head. Its plumage is mostly brownish black and it has prominent yellow cheek patches and a yellow tail band. The body feathers are edged with yellow giving a scalloped appearance. The adult male has a black beak and pinkish-red eye-rings, and the female has a bone-coloured beak and grey eye-rings. In flight, yellow-tailed black cockatoos flap deeply and slowly, with a peculiar heavy fluid motion. Their loud, wailing calls carry for long distances. The whiteae is found south of Victoria to the East of South Australia and is smaller in size. The yellow-tailed black cockatoo is found in temperate forests and forested areas across south and central eastern Queensland to southeastern South Australia, including a very small population persisting in the Eyre Peninsula. Two subspecies are recognised, although Tasmanian and southern mainland populations of the southern subspecies xanthanotus may be distinct enough from each other to bring the total to three. Birds of subspecies funereus (Queensland to eastern Victoria) have longer wings and tails and darker plumage overall, while those of xanthanotus (western Victoria, South Australia and Tasmania) have more prominent scalloping.", "65cm", "900 grams", "Southeast Australia", "./images/birds/yellow-tailed-black-cockatoo.jpg")
+let yellowTailedCockatoo = new ZooAnimals("Yellow Tailed Cockatoo", "41 years", "Bird", "Fruit, seeds and other plant material", "It has a short crest on the top of its head. Its plumage is mostly brownish black and it has prominent yellow cheek patches and a yellow tail band. The body feathers are edged with yellow giving a scalloped appearance. The adult male has a black beak and pinkish-red eye-rings, and the female has a bone-coloured beak and grey eye-rings. In flight, yellow-tailed black cockatoos flap deeply and slowly, with a peculiar heavy fluid motion. Their loud, wailing calls carry for long distances. The whiteae is found south of Victoria to the East of South Australia and is smaller in size. The yellow-tailed black cockatoo is found in temperate forests and forested areas across south and central eastern Queensland to southeastern South Australia, including a very small population persisting in the Eyre Peninsula. Two subspecies are recognised, although Tasmanian and southern mainland populations of the southern subspecies xanthanotus may be distinct enough from each other to bring the total to three. Birds of subspecies funereus (Queensland to eastern Victoria) have longer wings and tails and darker plumage overall, while those of xanthanotus (western Victoria, South Australia and Tasmania) have more prominent scalloping.", "65cm", "900 grams", "Southeast Australia", "./images/birds/yellow-tailed-black-cockatoo.jpg")
 
 let zooArray = [
-  echidna, 
-  tasmanianDevil, 
-  quokka, 
-  frillNeckLizard, 
-  hawksbillTurtle, 
-  perentie, 
-  cassowary, 
-  kookaburra, 
+  echidna,
+  tasmanianDevil,
+  quokka,
+  frillNeckLizard,
+  hawksbillTurtle,
+  perentie,
+  cassowary,
+  kookaburra,
   yellowTailedCockatoo
 ]
 
@@ -73,10 +73,10 @@ let welcome = document.querySelector(".welcome_container");
 let originalContent = welcome.innerHTML;
 let selectedAnimal = "";
 
-const maxLength = description => description.slice(0,200) + (description.length > 200 ? "..." : "");
+const maxLength = description => description.slice(0, 200) + (description.length > 200 ? "..." : "");
 
 zooArray.forEach(animal => {
-let selectedDiv = document.querySelector(`.${animal.name.replace(/\s+/g, "-")}`);
+  let selectedDiv = document.querySelector(`.${animal.name.replace(/\s+/g, "-")}`);
 
   selectedDiv.addEventListener("click", () => {
     document.querySelectorAll(".animal_item").forEach(item => {
@@ -85,13 +85,13 @@ let selectedDiv = document.querySelector(`.${animal.name.replace(/\s+/g, "-")}`)
     if (selectedAnimal === animal.name) {
       welcome.innerHTML = originalContent;
       selectedAnimal = "";
-    } else { 
+    } else {
       selectedDiv.classList.add("active_item");
       welcome.innerHTML = `
         <h1>${animal.name}</h1>
-        <p class="intro_text"> Group: ${animal.group}</p>
-        <p class="intro_text"> Diet: ${animal.food}</p>
-        <p class="intro_text">${maxLength(animal.description)}</p>
+        <p class="container_text"> Group: ${animal.group}</p>
+        <p class="container_text"> Diet: ${animal.food}</p>
+        <p class="container_text">${maxLength(animal.description)}</p>
         <a class="page_link" href="./${animal.group.toLowerCase()}s.html"> See all ${animal.group}s</a>
         <img class="animal_img" src="${animal.image}">`;
       selectedAnimal = animal.name;
