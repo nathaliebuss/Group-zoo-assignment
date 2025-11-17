@@ -155,7 +155,8 @@ main {
   transition: all .4s;
 }
 
-.sidebar_item:hover {
+.sidebar_item:hover,
+.animal_item:hover {
   transform: scale(1.06);
 }
 

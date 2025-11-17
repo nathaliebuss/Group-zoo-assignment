@@ -62,7 +62,5 @@ const listTeamMates = (active = defaultMessage) => {
   });
 }
 
-console.log(teamMates)
-
 //initializes the default message//
 appendMember(defaultMessage)
