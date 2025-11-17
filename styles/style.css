@@ -106,9 +106,10 @@ main {
   cursor: pointer;
 }
 
-.group_item {
-  font-size: 2rem;
+.animal_item {
+  font-size: 1.3rem;
   text-align: left;
+  cursor: pointer;
 }
 
 .welcome_container {
