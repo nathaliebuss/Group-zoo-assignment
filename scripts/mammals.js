@@ -24,4 +24,8 @@ mammalArray.forEach (animal =>  {
     sideMammals.appendChild(mammalsGroup)
 })
 
-sideMammals.addEventListener
+sideMammals.addEventListener("click", () => {
+    document.querySelectorAll(".sidebar_item").forEach(animals => {
+        animals.classList.remove("active_item");
+    });
+});

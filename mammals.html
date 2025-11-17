@@ -4,35 +4,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mammals</title>
+  <title>Home</title>
   <link rel="stylesheet" href="./styles/style.css">
-  <script src="./scripts/mammals.js" defer ></script>
   <link rel="stylesheet" href="./fonts/fonts.css">
+  <script src="./scripts/mammals.js" defer></script>
 </head>
 
 <body>
   <header class="header">
-    <h1 class="header_title"></h1>
+    <div class="header_logo">
+      <img class="header_image" src="./images/logo.png" alt="logo" height="150px" width="250px">
+    </div>
+    <nav class="navigation">
+      <a href="index.html" class="nav_button">Home</a>
+      <a href="birds.html" class="nav_button">Birds</a>
+      <a href="mammals.html" class="nav_button active_nav">Mammals</a>
+      <a href="reptiles.html" class="nav_button">Reptiles</a>
+      <a href="aboutUs.html" class="nav_button">About Us</a>
+    </nav>
   </header>
-  <nav class="navigation">
-    <ul class="nav_button"><a href="index.html">Home</a></ul>
-    <ul class="nav_button"><a href="birds.html">Birds</a></ul>
-    <ul class="nav_button"><a href="mammals.html">Mammals</a></ul>
-    <ul class="nav_button"><a href="reptiles.html">Reptiles</a></ul>
-    <ul class="nav_button"><a href="aboutUs.html">About Us</a></ul>
-  </nav>
-  <main class="main_content">
-    <div class="sidebar"></div>
-    <article class="welcome_container">
-      <h2 class="subtitle"></h2> <!--add subtitle for description of page i.e mammals-->
-        <h1 class="header_title"> Mammals</h1>
-        <p class="container_text"> Australia is home to some of the world’s most remarkable mammals, each adapted to thrive in unique environments across the continent. Among the most fascinating is the Echidna, a spiny monotreme known for being one of the only mammals that lay eggs. Covered in sharp, hollow quills, the echidna uses its long, sticky tongue to feed on ants, termites, and other small invertebrates. Despite its tough appearance, it is a shy and solitary creature found throughout Australia.
-        The Tasmanian Devil, once restricted to Tasmania, is famous for its powerful jaws, loud screeches, and bold personality. As the largest carnivorous marsupial, it plays a crucial role in the ecosystem by scavenging carrion and controlling other animal populations. Although small, its muscular build allows it to deliver one of the strongest bites relative to body size of any land mammal.
-        In contrast, the Quokka is a friendly, plant-eating marsupial best known for its expressive “smile.” Found mainly on Rottnest Island and parts of Western Australia, quokkas thrive in shrublands and dense vegetation. Their small size, gentle nature, and curious behavior make them a favourite among visitors.
-        Together, these mammals showcase the incredible diversity of Australia’s wildlife—each one offering a unique glimpse into the continent’s evolutionary history and natural beauty.</p>
-      </article>
-    </main>
-  <footer class="footer"></footer>
+
+  <main>
+    <div class="background_image">
+      <div class="search_container">
+        <input class='search_box' type="text" placeholder='search..'/>
+        <svg class='search' fill='none' viewBox='0 0 15 15' xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5 14.5L10.5 10.5M6.5 12.5C3.18629 12.5 0.5 9.81371 0.5 6.5C0.5 3.18629 3.18629 0.5 6.5 0.5C9.81371 0.5 12.5 3.18629 12.5 6.5C12.5 9.81371 9.81371 12.5 6.5 12.5Z"/>
+        </svg>
+      </div>
+    </div>
+
+    <section class="main_content">
+      <div class="sidebar">
+      </div>
+
+      <article class="welcome_container">
+        <h1 class="subtitle">MAMMALS!</h1>
+        <p class="container_text">In the mammal section, the zoo highlights beloved Australian species such as the echidna, quokka, and Tasmanian devil. Each exhibit offers a close look at how these mammals live, feed, and survive in the wild, helping guests appreciate their importance to Australia’s ecosystems.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+
+  <footer class="footer">&copy;Koala Mates</footer>
+
 </body>
 
 </html>
