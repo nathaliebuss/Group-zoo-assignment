@@ -59,6 +59,10 @@ body {
   font-size: 1.2rem;
 }
 
+.active_nav {
+  font-weight: 600;
+}
+
 .search_container {
   height: fit-content;
   width: fit-content;

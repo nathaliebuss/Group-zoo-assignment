@@ -1,4 +1,5 @@
 ////Constructor////
+let teamMates = []
 
 function teamMate(first, last, country, description, pet) {
   this.first = first
@@ -6,6 +7,7 @@ function teamMate(first, last, country, description, pet) {
   this.country = country
   this.description = description
   this.pet = pet
+  teamMates.push(this)
 }
 
 ////Creating each member////
@@ -16,13 +18,13 @@ let brianna = new teamMate('Brianna', 'Fraser', 'Brianna is from China', 'Briann
 let nathalie = new teamMate('Nathalie', 'Buss', 'Nathalie is from Sweden', 'Nathalie became a part of Quokka zoo after falling into the Perentie exhibit and being too afraid to climb out. You will find her desperately avoiding the Perentie, who have become indifferent to her presence. Since she has been here for so long, we decided to make her part of the team.', 'Nathalie has a cat.')
 let defaultMessage = new teamMate('Team', 'Members', '', 'Our team has members from all over the world! We work together to maintain a healthy and safe environment for all of the animals that we are responsible for. Our goal is to present the most interesting species in Australia in an engaging and authentic way to everyone who steps through our gate.', '')
 
-let teamMates = [nathalie, brianna, callum, clara, seth]
+teamMates.pop(teamMates.findLast)
 
 ////Functions////
 
 ///adds each key-value pair with the key as the classname and the value as the text content, also adds title///
 const appendMember = (member) => {
-  let memberArea = document.querySelector('.welcome_message')
+  let memberArea = document.querySelector('.welcome_container')
   //resets the content//
   memberArea.innerHTML = ''
   let subtitle = document.createElement('h1')
@@ -50,15 +52,17 @@ const listTeamMates = (active = defaultMessage) => {
     teamMate.textContent = member.first
     teamMate.className = 'sidebar_item'
     //Adds active class and event listener to go to default message if clicked again//
-    if (member === active){
-    teamMate.addEventListener('click', () => {appendMember(defaultMessage)}, {once:true})
-    teamMate.className = 'sidebar_item active_item'
+    if (member === active) {
+      teamMate.addEventListener('click', () => { appendMember(defaultMessage) }, { once: true })
+      teamMate.className = 'sidebar_item active_item'
     } else {
-    teamMate.addEventListener('click', () => {appendMember(member)}, {once:true})
+      teamMate.addEventListener('click', () => { appendMember(member) }, { once: true })
     }
     sidebar.appendChild(teamMate)
   });
 }
+
+console.log(teamMates)
 
 //initializes the default message//
 appendMember(defaultMessage)

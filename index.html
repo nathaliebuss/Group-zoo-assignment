@@ -15,7 +15,7 @@
       <img class="header_image" src="./images/logo.png" alt="logo" height="150px" width="250px">
     </div>
     <nav class="navigation">
-      <a href="index.html" class="nav_button">Home</a>
+      <a href="index.html" class="nav_button active_nav">Home</a>
       <a href="birds.html" class="nav_button">Birds</a>
       <a href="mammals.html" class="nav_button">Mammals</a>
       <a href="reptiles.html" class="nav_button">Reptiles</a>
@@ -24,14 +24,21 @@
   </header>
 
   <main>
-    <div class="background_image"></div>
+    <div class="background_image">
+      <div class="search_container">
+        <input class='search_box' type="text" placeholder='search..'/>
+        <svg class='search' fill='none' viewBox='0 0 15 15' xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.5 14.5L10.5 10.5M6.5 12.5C3.18629 12.5 0.5 9.81371 0.5 6.5C0.5 3.18629 3.18629 0.5 6.5 0.5C9.81371 0.5 12.5 3.18629 12.5 6.5C12.5 9.81371 9.81371 12.5 6.5 12.5Z"/>
+        </svg>
+      </div>
+    </div>
 
     <section class="main_content">
       <div class="sidebar">
         <h2>Animals</h2>
       </div>
 
-      <article class="welcome_message">
+      <article class="welcome_container">
         <h1 class="subtitle">Welcome!</h1>
         <p class="intro_text">G’day, mates! Get ready for an unforgettable Aussie adventure! From cuddly koalas and
           hopping kangaroos to rare reptiles and majestic birds of prey, there’s something amazing waiting around every
