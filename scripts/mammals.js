@@ -23,3 +23,5 @@ mammalArray.forEach (animal =>  {
     mammalsGroup.textContent = animal.name
     sideMammals.appendChild(mammalsGroup)
 })
+
+sideMammals.addEventListener
