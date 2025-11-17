@@ -89,9 +89,9 @@ zooArray.forEach(animal => {
       selectedDiv.classList.add("active_item");
       welcome.innerHTML = `
         <h1>${animal.name}</h1>
-        <p class="intro_text"> Group: ${animal.group}</p>
-        <p class="intro_text"> Diet: ${animal.food}</p>
-        <p class="intro_text">${maxLength(animal.description)}</p>
+        <p class="container_text"> Group: ${animal.group}</p>
+        <p class="container_text"> Diet: ${animal.food}</p>
+        <p class="container_text">${maxLength(animal.description)}</p>
         <a class="page_link" href="./${animal.group.toLowerCase()}s.html"> See all ${animal.group}s</a>
         <img class="animal_img" src="${animal.image}">`;
       selectedAnimal = animal.name;

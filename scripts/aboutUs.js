@@ -36,7 +36,7 @@ const appendMember = (member) => {
   for (let i = 2; i < memberPairs.length; i++) {
     let memberData = document.createElement('div')
     memberData.textContent = memberPairs[i][1]
-    memberData.className = (memberPairs[i][0] + ' intro_text') //We might end up changing this class name//
+    memberData.className = (memberPairs[i][0] + ' container_text') //We might end up changing this class name//
     memberArea.appendChild(memberData)
   }
   listTeamMates(member)

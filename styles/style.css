@@ -167,10 +167,11 @@ main {
 }
 
 .animal_item {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-align: left;
   cursor: pointer;
   transition: all .4s;
+  padding: 5px 3px;
 }
 
 .animal_img {
@@ -190,7 +191,7 @@ main {
   text-decoration: underline;
 }
 
-.intro_text {
+.container_text {
   font-size: 1.5rem;
   padding: 8px;
 }
