@@ -149,10 +149,35 @@ main {
   display:block;
 }
 
-.birds__detail {
-  display:none;
-  position:fixed;
+.birds__popup {
   background-color: var(--background-tertiary);
+  width:min(800px, 90vw);
+  max-height:80vh;
+
+  display:none;
+  flex-direction: column;
   justify-content:center;
+  gap:1rem;
+
+  position:fixed;
+  inset:20%;
+  border-radius: 12px;
+  
   align-items:center;
+  text-align: center;
+  
+  
+}
+
+
+.birds__popup img {
+  max-width:300px;
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:8px;
+
+  width:100%;
+  aspect-ratio: 1 / 1;
+  object-fit : cover;
 }

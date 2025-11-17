@@ -48,6 +48,10 @@ birdsArray.forEach(bird => {
     item.classList.add("sidebar_item")
     item.textContent = bird.name
 
+    item.addEventListener("click", () => {
+        openDetail(bird)
+    })
+
     sidebar.appendChild(item)
 })
 
@@ -81,17 +85,24 @@ birdsArray.forEach(bird => {
 })
 
     //birds detail pop up //
-
-    const birdsDetail = document.querySelector("#birdsDetail")
-
-    const detailImage = document.querySelector("#detailImage")
-
+    const birdsPopup = document.querySelector("#birdsPopup")
+    const birdImage = document.querySelector("#birdImage")
     const backBtn = document.querySelector("#backBtn")
-   
+    const birdLifespan = document.querySelector("#birdLifeSpan")
 
-function openDetail(bird) {
-    console.log("openDetail:", bird.name);
-    detailImage.src = bird.image
-    birdsDetail.style.display = "flex"
-}
+    backBtn.addEventListener("click",() => {
+        birdsPopup.style.display = "none";
+    })
+ 
+
+    function openDetail(bird) { 
+        console.log("openDetail:",bird.name)
+
+        birdImage.src = bird.image
+        birdLifespan.textContent = bird.lifespan
+
+
+
+        birdsPopup.style.display = "flex"
+        }
 
