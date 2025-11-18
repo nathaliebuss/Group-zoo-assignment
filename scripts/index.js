@@ -119,11 +119,9 @@ const checkWindowSize = () => {
   if (windowSize < 900) {
     sidebarDeactivate()
     window.addEventListener('resize', checkWindowSize, { once: true })
-    console.log('removing sidebar')
   } else {
     sidebarActivate()
     window.addEventListener('resize', checkWindowSize, { once: true })
-    console.log('adding sidebar')
   }
 }
 
