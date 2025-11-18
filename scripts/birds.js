@@ -3,14 +3,15 @@ const content = document.querySelector(".content_container");
 const originalContent = content.innerHTML; 
 
 
-function Birds(name, lifespan, group, food, length,  weight, location, image,description) {
+
+function Birds(name, lifespan, group, food, length,  weight, found, image,description) {
     this.name = name;
     this.lifespan = lifespan;
     this.group = group;
     this.food = food;
     this.length = length;
     this.weight = weight;
-    this.location = location;
+    this.found = found;
     this.image = image;
     this.description = description;
 }
@@ -33,50 +34,62 @@ let birdsArray = [
 
 const maxLength = desc => desc.slice(0, 200) + (desc.length > 200 ? "..." : "");
 
+
+//sidebar
+let birdGroup = document.createElement("birdGroup");
+    birdGroup.classList.add("animal_group")
+    birdGroup.textContent ="Birds:"
+
+    sidebar.appendChild(birdGroup)
+
+    birdGroup.addEventListener("click",() =>{
+      content.innerHTML = originalContent;
+    })
+
 birdsArray.forEach(birds => {
     let item = document.createElement("div");
-    item.classList.add("animal_item");
-    item.textContent = birds.name;
+        item.classList.add("animal_item");
+        item.textContent = birds.name;
 
-    item.addEventListener("click", () => {
-       
+        item.addEventListener("click", (e) => {
+          e.stopPropagation();
+
         document.querySelectorAll(".animal_item").forEach(i => i.classList.remove("active_item"));
         item.classList.add("active_item");
         
         showShortSummary(birds);
     });
-    sidebar.appendChild(item);
+
+        birdGroup.appendChild(item);
 });
 
 // short summary
 function showShortSummary(birds) {
     content.innerHTML = `
-        <h1>${birds.name}</h1>
-        
-        <p class="container_text"><strong>Group:</strong> ${birds.group}</p>
-        <p class="container_text"><strong>Food:</strong> ${birds.food}</p>
-        <img class="animal_img" src="${birds.image}">
-        <p class="container_text">${maxLength(birds.description)}</p>
-        <button id="readMoreBtn" class="page_link">Read More</button>
+    <h1>${birds.name}</h1>
+    <p class="container_text"><strong>Lifespan:</strong> ${birds.lifespan}</p>
+    <p class="container_text"><strong>group:</strong> ${birds.group}</p>
+    <img class="animal_img" src="${birds.image}">
+    <button id="readMoreBtn" class="page_link">Read More</button>
     `;
 
     document.querySelector("#readMoreBtn").onclick = () => showFullSummary(birds);
 }
 
 // fullSummary
-
 function showFullSummary(birds) {
     content.innerHTML = `
         <h1>${birds.name}</h1>
-        <img class="animal_img" src="${birds.image}">
-        
         <p class="container_text"><strong>Lifespan:</strong> ${birds.lifespan}</p>
+        <p class="container_text"><strong>group:</strong> ${birds.group}</p>
+        <p class="container_text"><strong>food:</strong> ${birds.food}</p>
         <p class="container_text"><strong>Length:</strong> ${birds.length}</p>
         <p class="container_text"><strong>Weight:</strong> ${birds.weight}</p>
-        <p class="container_text"><strong>Location:</strong> ${birds.location}</p>
+        <p class="container_text"><strong>found:</strong> ${birds.found}</p>
+        <img class="animal_img" src="${birds.image}">
         <p class="container_text"><strong>Description:</strong> ${birds.description}</p>
         
-        <button id="backBtn" class="page_link">Back</button>
+        <button id="backBtn" class="page_link">back for summary</button>
     `;
 
     document.querySelector("#backBtn").onclick = () => showShortSummary(birds);

@@ -212,3 +212,38 @@ main {
   padding: 16px;
 }
 
+/* birds */
+.content_container {
+  background-color: var(--background-secondary);
+  
+  width:min(800px, 90vw);
+  padding:20px;
+
+  inset:8%;
+  border-radius: 12px;
+  align-items:center;
+  text-align: center;
+}
+
+.container_text{
+  margin:0;
+  
+}
+
+.page_link{
+  background-color: var(--background-primary);
+  color:var(--color-primary);
+  display:block;
+  margin-top:3%;
+  margin-right:auto;
+  margin-left:auto;
+
+  padding:15px 42px;
+  border-radius: 12px;
+
+  text-decoration: none;
+  border:none;
+
+  text-align:center;
+  cursor:pointer;
+}
