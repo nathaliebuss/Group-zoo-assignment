@@ -101,6 +101,8 @@ zooArray.forEach(animal => {
 
 const hamburger = document.querySelector('.hamburger_menu')
 const windowSize = window.innerWidth
+const body = document.querySelector('.main_content')
+const backgroundPicture = document.querySelector('.background_image')
 
 const sidebarActivate = () => {
   let nav = document.querySelector('.navigation')
@@ -125,8 +127,10 @@ const checkWindowSize = () => {
   }
 }
 
-hamburger.addEventListener('click', sidebarDeactivate, { once: true })
+///If you click anywhere outside the sidebar when its shown, it will hide///
+hamburger.addEventListener('click', sidebarActivate, { once: true })
+body.addEventListener('click', sidebarDeactivate)
+backgroundPicture.addEventListener('click', sidebarDeactivate)
 
 //initializes the default message, and the sidebar position//
 checkWindowSize()
-appendMember(defaultMessage)

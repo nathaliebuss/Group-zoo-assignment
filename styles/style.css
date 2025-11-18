@@ -81,7 +81,7 @@ body {
   right: 38px;
   padding: 6px;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
   border-radius: 40px;
 }
 
@@ -96,17 +96,17 @@ body {
   margin: 18px 3%;
   padding: 0 10px;
   background-color: var(--background-secondary);
-  opacity: .7;
+  opacity: 0.7;
   border-radius: 18px;
   display: flex;
   align-items: center;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .search_container:focus-within,
 .search_container:hover {
-  opacity: .9;
-  transform: scale(1.08)
+  opacity: 0.9;
+  transform: scale(1.08);
 }
 
 .search {
@@ -179,7 +179,7 @@ main {
   font-size: 1.5rem;
   text-align: left;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .sidebar_item:hover,
@@ -196,7 +196,7 @@ main {
   font-size: 1.2rem;
   text-align: left;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
   padding: 5px 3px;
 }
 
@@ -231,20 +231,21 @@ main {
 @keyframes moveOver {
   from {
     transform: translateX(46vw);
-  } to {
+  }
+  to {
     transform: translateX(0);
   }
 }
 @keyframes moveBack {
   from {
     transform: translateX(0);
-  } to {
+  }
+  to {
     transform: translateX(46vw);
   }
 }
 
 @media (width < 900px) {
-
   .header {
     height: 10%;
     padding: 0;
@@ -253,7 +254,7 @@ main {
   }
 
   .header_logo {
-    transform: scale(.7);
+    transform: scale(0.7);
     padding: 0;
   }
 
@@ -264,17 +265,21 @@ main {
     position: fixed;
     top: 10vh;
     right: 0;
-    background: linear-gradient(to bottom, var(--background-primary), var(--background-tertiary));
+    background: linear-gradient(
+      to bottom,
+      var(--background-primary),
+      var(--background-tertiary)
+    );
     height: 90vh;
     width: 28vw;
-  };
+  }
 
   .nav_move {
-    animation: moveOver .4s forwards cubic-bezier(0.5, 1, 0.4, 1.2);
+    animation: moveOver 0.4s forwards cubic-bezier(0.5, 1, 0.4, 1.2);
   }
 
   .nav_hide {
-    animation: moveBack .3s forwards;
+    animation: moveBack 0.3s forwards;
   }
 
   .nav_button {
@@ -282,10 +287,10 @@ main {
     text-align: left;
     font-size: 1.4rem;
     width: 100%;
-    transition: all .4s;
+    transition: all 0.4s;
   }
 
-  .nav_button:hover{
+  .nav_button:hover {
     background-color: var(--background-tertiary);
   }
 
@@ -305,6 +310,7 @@ main {
     gap: none;
     display: block;
     padding: 0;
+    padding-bottom: 1.5rem;
   }
 
   .sidebar {
@@ -313,15 +319,19 @@ main {
     padding: 12px;
     margin: 0;
     border: none;
-    background: linear-gradient(to right, var(--color-primary), var(--background-quaternary));
+    background: linear-gradient(
+      to right,
+      var(--color-primary),
+      var(--background-quaternary)
+    );
     border-radius: 0;
     color: var(--background-secondary);
   }
 
   .sidebar_item,
   .animal_group {
-    padding: 1rem .6rem;
-    font-size: clamp(1.1rem, 4.3vw, 1.6rem);
+    padding: 1rem 0.6rem;
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
     height: 100%;
     width: clamp(9rem, 12vw, 20rem);
     border-radius: 8px;
@@ -342,7 +352,7 @@ main {
 
   .animal_group:hover .animal_item {
     display: block;
-    font-size: clamp(.9rem, 3.8vw, 1.3rem);
+    font-size: clamp(0.9rem, 3.4vw, 1.3rem);
     padding: 5px 3px;
     opacity: 1;
   }

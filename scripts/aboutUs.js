@@ -64,6 +64,8 @@ const listTeamMates = (active = defaultMessage) => {
 
 const hamburger = document.querySelector('.hamburger_menu')
 const windowSize = window.innerWidth
+const body = document.querySelector('.main_content')
+const backgroundPicture = document.querySelector('.background_image')
 
 const sidebarActivate = () => {
   let nav = document.querySelector('.navigation')
@@ -89,6 +91,8 @@ const checkWindowSize = () => {
 }
 
 hamburger.addEventListener('click', sidebarDeactivate, { once: true })
+body.addEventListener('click', sidebarDeactivate)
+backgroundPicture.addEventListener('click', sidebarDeactivate)
 
 //initializes the default message, and the sidebar position//
 checkWindowSize()
