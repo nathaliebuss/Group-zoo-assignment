@@ -63,20 +63,36 @@ const listTeamMates = (active = defaultMessage) => {
 }
 
 const hamburger = document.querySelector('.hamburger_menu')
+const windowSize = window.innerWidth
 
 const sidebarActivate = () => {
   let nav = document.querySelector('.navigation')
-  nav.style.animation = ("moveBack .7s forwards")
+  nav.className = 'navigation nav_move'
   hamburger.addEventListener('click', sidebarDeactivate, { once: true })
 }
 
 const sidebarDeactivate = () => {
   let nav = document.querySelector('.navigation')
-  nav.style.animation = ("moveOver .7s forwards")
+  nav.className = 'navigation nav_move_back'
   hamburger.addEventListener('click', sidebarActivate, { once: true })
 }
 
-hamburger.addEventListener('click', sidebarActivate, { once: true })
+
+const checkWindowSize = () => {
+  if (windowSize < 900) {
+    sidebarDeactivate()
+    window.addEventListener('resize', checkWindowSize, { once: true })
+    console.log('removing sidebar')
+  } else {
+    sidebarActivate()
+    window.addEventListener('resize', checkWindowSize, { once: true })
+    console.log('adding sidebar')
+  }
+}
+
+hamburger.addEventListener('click', sidebarDeactivate, { once: true })
 
 //initializes the default message//
+
+checkWindowSize()
 appendMember(defaultMessage)
