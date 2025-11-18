@@ -176,10 +176,18 @@ main {
 }
 
 .animal_img {
-  width: 500px;
-  height: 500px;
+  /* width: 500px;
+  height: 500px; */
   object-fit: contain;
   object-position: center;
+
+  max-width:300px;
+  width:100%;
+
+  height:auto;
+  border-radius:8px;
+  aspect-ratio: 1 / 1;
+  object-fit : cover;
 }
 
 .page_link {
@@ -197,8 +205,11 @@ main {
   padding: 8px;
 }
 
+
+
 .footer {
   color: var(--background-secondary);
   text-align: center;
   padding: 16px;
 }
+
