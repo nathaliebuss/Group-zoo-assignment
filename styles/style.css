@@ -267,7 +267,7 @@ main {
     right: 0;
     background: linear-gradient(to bottom, var(--background-primary), var(--background-tertiary));
     height: 90vh;
-    width: 46vw;
+    width: 28vw;
   };
 
   .nav_move {
@@ -351,5 +351,10 @@ main {
   .welcome_container {
     padding: 0 2rem;
   }
-  
+}
+
+@media (width < 600px) {
+  .navigation {
+    width: 42vw;
+  }
 }
