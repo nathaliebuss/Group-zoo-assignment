@@ -63,36 +63,42 @@ const listTeamMates = (active = defaultMessage) => {
 }
 
 const hamburger = document.querySelector('.hamburger_menu')
-const windowSize = window.innerWidth
 const body = document.querySelector('.main_content')
 const backgroundPicture = document.querySelector('.background_image')
 
-const sidebarActivate = () => {
-  let nav = document.querySelector('.navigation')
-  nav.className = 'navigation nav_move'
-  hamburger.addEventListener('click', sidebarDeactivate, { once: true })
-}
+let sidebarOn = false
 
-const sidebarDeactivate = () => {
+const toggleSidebar = () => {
   let nav = document.querySelector('.navigation')
-  nav.className = 'navigation nav_hide'
-  hamburger.addEventListener('click', sidebarActivate, { once: true })
+  if (!sidebarOn) {
+    nav.className = 'navigation nav_move'
+    sidebarOn = true
+  } else {
+    nav.className = 'navigation nav_hide'
+    sidebarOn = false
+  }
 }
 
 ///Checks whether to show or hide the sidebar based on width///
 const checkWindowSize = () => {
+  const windowSize = window.innerWidth
   if (windowSize < 900) {
-    sidebarDeactivate()
-    window.addEventListener('resize', checkWindowSize, { once: true })
+    sidebarOn = true
+    toggleSidebar()
   } else {
-    sidebarActivate()
-    window.addEventListener('resize', checkWindowSize, { once: true })
+    sidebarOn = false
+    toggleSidebar()
   }
 }
 
-hamburger.addEventListener('click', sidebarDeactivate, { once: true })
-body.addEventListener('click', sidebarDeactivate)
-backgroundPicture.addEventListener('click', sidebarDeactivate)
+window.addEventListener('resize', checkWindowSize)
+hamburger.addEventListener('click', toggleSidebar)
+body.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+  })
+backgroundPicture.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+  })
 
 //initializes the default message, and the sidebar position//
 checkWindowSize()

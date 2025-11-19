@@ -81,13 +81,17 @@ body {
   right: 38px;
   padding: 6px;
   cursor: pointer;
-  transition: all 0.4s;
+  transition: all 0.25s;
   border-radius: 40px;
 }
 
 .hamburger_menu:hover {
-  background-color: var(--background-secondary);
+  background-color: var(--background-tertiary);
   fill: var(--color-primary);
+}
+
+.hamburger_menu:active {
+  transform: scale(.9);
 }
 
 .search_container {
