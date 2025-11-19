@@ -65,8 +65,8 @@ birdsArray.forEach(birds => {
 function showShortSummary(birds) {
     content.innerHTML = `
     <h1>${birds.name}</h1>
-    <p class="container_text"><strong>Lifespan:</strong> ${birds.lifespan}</p>
-    <p class="container_text"><strong>group:</strong> ${birds.group}</p>
+    <p class="container_text">Lifespan: ${birds.lifespan}</p>
+    <p class="container_text">Group: ${birds.group}</p>
     <img class="animal_img" src="${birds.image}">
     <button class="read_more" id="readMoreBtn" >Read More</button>
     `;
@@ -78,14 +78,14 @@ function showShortSummary(birds) {
 function showFullSummary(birds) {
     content.innerHTML = `
         <h1>${birds.name}</h1>
-        <p class="container_text"><strong>Lifespan:</strong> ${birds.lifespan}</p>
-        <p class="container_text"><strong>group:</strong> ${birds.group}</p>
-        <p class="container_text"><strong>food:</strong> ${birds.food}</p>
-        <p class="container_text"><strong>Length:</strong> ${birds.length}</p>
-        <p class="container_text"><strong>Weight:</strong> ${birds.weight}</p>
-        <p class="container_text"><strong>found:</strong> ${birds.found}</p>
+        <p class="container_text">Lifespan: ${birds.lifespan}</p>
+        <p class="container_text">Group: ${birds.group}</p>
+        <p class="container_text">Food: ${birds.food}</p>
+        <p class="container_text">Length: ${birds.length}</p>
+        <p class="container_text">Weight: ${birds.weight}</p>
+        <p class="container_text">Found: ${birds.found}</p>
         <img class="animal_img" src="${birds.image}">
-        <p class="container_text"><strong>Description:</strong> ${birds.description}</p>
+        <p class="container_text">Description:> ${birds.description}</p>
         
         <button class="read_more" id="backBtn" >back for summary</button>
     `;
