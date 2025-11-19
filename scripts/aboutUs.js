@@ -37,7 +37,7 @@ const appendMember = (member) => {
     let memberData = document.createElement('div')
     memberData.textContent = memberPairs[i][1]
     memberData.className = (memberPairs[i][0] + ' container_text') //We might end up changing this class name//
-    memberArea.appendChild(memberData)
+    memberData.textContent !== '' && memberArea.appendChild(memberData)
   }
   listTeamMates(member)
 }
@@ -82,7 +82,7 @@ searchBox.addEventListener('focus', () => {
 
 ///Logic for the media query menu///
 const hamburger = document.querySelector('.hamburger_menu')
-const body = document.querySelector('.main_content')  
+const body = document.querySelector('.main_content')
 const backgroundPicture = document.querySelector('.background_image')
 
 let sidebarOn = false
