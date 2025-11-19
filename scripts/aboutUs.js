@@ -71,7 +71,7 @@ const search = () => {
   let mainContent = document.querySelector('.welcome_container')
   let pageContent = mainContent.textContent
   let matchedWord
-  let position
+  let indexes = []
   if (searchContent === '') return
   for (let i = 0; i < pageContent.length; i++) {
     matchedWord = ''
@@ -85,15 +85,22 @@ const search = () => {
       }
     }
     if (!broken && matchedWord === searchContent) {
-      highlighter(mainContent, i, searchContent.length)
+      indexes.push(i)
     }
   }
+  highlighter(indexes, searchContent.length)
 }
 
-const highlighter = (content, index, wordLength) => {
-  let firstIndex = index
-  let lastIndex = index + wordLength
-  content.splice
+
+const highlighter = (indexes, wordLength) => {
+  let content = document.querySelector('.welcome_container')
+  let after = content.textContent
+  indexes.forEach(index => { 
+    let before = after.slice(0,index)
+    let match = after.slice(index, index + wordLength)
+    after = after.slice(index + wordLength, after.length)
+  });
+  console.log(``)
 }
 
 searchBox.addEventListener('focus', () => {
