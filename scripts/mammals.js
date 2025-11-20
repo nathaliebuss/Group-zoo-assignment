@@ -55,7 +55,7 @@ mammalArray.forEach(mammal => {
             <p class="container_text more">Weight: ${mammal.weight}</p>
             <p class="container_text more">Found: ${mammal.found}</p>
             <p class="container_text more">Lifespan: ${mammal.lifespan}</p>
-            <span class="toggle">Read more..</span>
+            <button id="Btn">Read more..</button>
             <img class="container_text" src="${mammal.image}"></img>`;
           selectedMammal = mammal.name;
         }
@@ -66,9 +66,10 @@ mammalArray.forEach(mammal => {
           more.forEach(item => item.style.display = "none")
           less.forEach(item => item.style.display = "block")
 
-          let toggle = document.querySelector(".toggle")
+          let toggle = document.querySelector(".Btn")
 
     //BUTTON ADD LISTENERS//
+    if (toggle){ 
     toggle.addEventListener("click", () => {
       if (more[0].style.display === "none") { //added index 0 because we are only checking if one element is hidden or not
         more.forEach(text => text.style.display = "block");
@@ -79,6 +80,7 @@ mammalArray.forEach(mammal => {
         less.forEach(text => text.style.display = "block");
         toggle.textContent = "Show more..";
       }
-    })
+    
+    })}
   })
 });
