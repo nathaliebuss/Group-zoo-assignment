@@ -1,3 +1,7 @@
+
+document.querySelector(".background_image").style.backgroundImage =
+    "url('../images/mammal_background.jpg')";
+
 //CONSTRUCTOR//
 function Mammals(name, lifespan, group, food, description, length, weight, found, image) { 
     this.name = name,

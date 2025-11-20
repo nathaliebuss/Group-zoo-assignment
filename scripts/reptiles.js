@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('../images/reptile_background.jpg')";
+
 let reptileArray = []
 
 function Reptile(name, lifespan, group, food, description, length, weight, found, image) {
