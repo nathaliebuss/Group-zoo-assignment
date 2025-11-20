@@ -367,7 +367,7 @@ h1 {
   }
 
   .search_container {
-    position: fixed;
+    position: absolute;
     width: fit-content;
     background: transparent;
   }
