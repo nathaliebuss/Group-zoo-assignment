@@ -42,6 +42,8 @@ body {
 .header_logo {
   display: flex;
   padding: 0 0 0 30px;
+  height: 100%;
+  aspect-ratio: 5/2;
 }
 
 .header_image {
