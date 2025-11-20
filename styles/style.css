@@ -184,6 +184,7 @@ main {
   text-decoration: none;
   text-decoration: underline;
   color: var(--color-primary);
+  display: block;
 }
 
 .active_item {
