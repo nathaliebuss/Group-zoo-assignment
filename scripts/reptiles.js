@@ -19,11 +19,11 @@ let perentie = new Reptile("Perentie", "20 years", "Reptile", "carnivore, they e
 
 const defaultMessageText = `<h1>Reptiles</h1> Reptile, any member of the class Reptilia, the group of air-breathing vertebrates that have internal fertilization, amniotic development, and epidermal scales covering part or all of their body. The major groups of living reptiles—the turtles, tuatara, lizards and snakes, and crocodiles—account for over 8,700 species.`
 
-let mainContent = document.querySelector(".welcome_message")
+let mainContent = document.querySelector(".welcome_container")
 
 let defaultMessage = document.createElement("div")
 
-defaultMessage.className = 'intro_text'
+defaultMessage.className = 'container_text'
 defaultMessage.innerHTML = defaultMessageText
 mainContent.appendChild(defaultMessage)
 
@@ -75,7 +75,7 @@ function showFullSummary(reptile) {
         <p class="intro_text"> Weight: ${reptile.weight}</p>
         <p class="intro_text"> Lifespan: ${reptile.lifespan}</p>
         <p class="intro_text"> Found: ${reptile.found}</p>
-        <button id="backBtn">Read less</button>
+        <button class=".Btn" id="backBtn">Read less</button>
     `;
 
   document.querySelector("#backBtn").onclick = () => showShortSummary(reptile);
@@ -88,7 +88,7 @@ function showShortSummary(reptile) {
         <a class="page_link" href="./reptiles.html"> Group: ${reptile.group}</a>
         <p class="intro_text"> Food: ${reptile.food}</p>
         <p class="intro_text">${maxLength(reptile.description)}</p>
-        <button id="readMoreBtn">Read more</button>`;
+        <button class=".Btn" id="readMoreBtn">Read more</button>`;
 
   document.querySelector("#readMoreBtn").onclick = () => showFullSummary(reptile);
 }
