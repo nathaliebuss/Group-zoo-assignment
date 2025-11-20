@@ -54,7 +54,7 @@ mammalArray.forEach(mammal => {
             <p class="container_text more">Weight: ${mammal.weight}</p>
             <p class="container_text more">Found: ${mammal.found}</p>
             <p class="container_text more">Lifespan: ${mammal.lifespan}</p>
-            <span class="toggle">Read more..</span>
+            <button id="backBtn">Read more..</button>
             <img class="container_text" src="${mammal.image}"></img>`;
           selectedMammal = mammal.name;
         }
@@ -65,7 +65,7 @@ mammalArray.forEach(mammal => {
           more.forEach(item => item.style.display = "none")
           less.forEach(item => item.style.display = "block")
 
-          let toggle = document.querySelector(".toggle")
+          let toggle = document.querySelector(".backBtn")
 
     //BUTTON ADD LISTENERS//
     toggle.addEventListener("click", () => {
