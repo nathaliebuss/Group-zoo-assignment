@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/background_image.avif')";
+
 ////Constructor////
 let teamMates = []
 
@@ -122,6 +125,3 @@ searchBox.addEventListener('blur', ()=> search(true))
 
 //initializes the default message//
 appendMember(defaultMessage)
-
-document.querySelector(".background_image").style.backgroundImage =
-    "url('../images/background_image.avif')";

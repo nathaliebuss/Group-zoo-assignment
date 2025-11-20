@@ -1,7 +1,7 @@
 const SIDEBAR = document.querySelector(".sidebar")
 
 document.querySelector(".background_image").style.backgroundImage =
-    "url('../images/background_image.avif')";
+    "url('./images/background_image.avif')";
 
 let menuLabels = [
   { group: "Bird", text: "Birds:" },
@@ -102,3 +102,58 @@ zooArray.forEach(animal => {
   });
 });
 
+///Logic for the searchbar///
+const searchButton = document.querySelector('.search')
+const searchBox = document.querySelector('.search_box')
+
+const search = (clear = false) => {
+  let searchContent
+  if(!clear) {
+    searchContent = searchBox.value
+  } else {
+    searchContent = ''
+  }
+  searchContent = searchContent.toLowerCase()
+  let containers = document.querySelectorAll('.container_text')
+  let containerArray = Array.from(containers)
+  containerArray.forEach(container => {
+    let matchedWord
+    let indexes = []
+    let pageContent = container.textContent.toLowerCase()
+    for (let i = 0; i < pageContent.length; i++) {
+      matchedWord = ''
+      let broken = false
+      for (let j = 0, k = i; j < searchContent.length; j++, k++) {
+        if (searchContent.charAt(j) === pageContent.charAt(k)) {
+          matchedWord += pageContent.charAt(k)
+        } else {
+          broken = true
+          break
+        }
+      } if (!broken && matchedWord === searchContent) {
+        indexes.push(i)
+      }
+    }
+    highlighter(container, indexes, searchContent.length)
+  })
+}
+
+const highlighter = (container, indexes, wordLength) => {
+  let text = container.textContent
+  let result = ''
+  let lastIndex = 0
+  indexes.forEach(start => { 
+    let end = start + wordLength
+    result += text.slice(lastIndex, start)
+    result += `<span class='highlight'>${text.slice(start, end)}</span>`
+    lastIndex = end
+  });
+  result += text.slice(lastIndex)
+  container.innerHTML = result
+}
+
+searchBox.addEventListener('keydown', (e) => {
+  e.key === 'Enter' && search(false)
+})
+searchButton.addEventListener('click', ()=> search(false))
+searchBox.addEventListener('blur', ()=> search(true))
