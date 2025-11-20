@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/reptile_background.jpg')";
+
 let reptileArray = []
 
 function Reptile(name, lifespan, group, food, description, length, weight, found, image) {
@@ -92,3 +95,101 @@ function showShortSummary(reptile) {
 
   document.querySelector("#readMoreBtn").onclick = () => showFullSummary(reptile);
 }
+
+///Logic for the media query menu///
+const hamburger = document.querySelector('.hamburger_menu')
+const body = document.querySelector('.main_content')
+const backgroundPicture = document.querySelector('.background_image')
+
+let sidebarOn = false
+let userSidebarInput = false
+
+const toggleSidebar = () => {
+  let nav = document.querySelector('.navigation')
+  if (!sidebarOn) {
+    nav.className = 'navigation nav_move'
+    sidebarOn = true
+  } else {
+    nav.className = 'navigation nav_hide'
+    sidebarOn = false
+  }
+}
+
+///Checks whether to show or hide the sidebar based on width///
+const checkWindowSize = () => {
+  const windowSize = window.innerWidth
+  if (windowSize < 900) {
+    sidebarOn = true
+    toggleSidebar()
+  } else {
+    sidebarOn = false
+    toggleSidebar()
+  }
+}
+
+window.addEventListener('resize', checkWindowSize)
+hamburger.addEventListener('click', toggleSidebar)
+body.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
+backgroundPicture.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
+
+///Logic for the searchbar///
+const searchButton = document.querySelector('.search')
+const searchBox = document.querySelector('.search_box')
+
+const search = (clear = false) => {
+  let searchContent
+  if(!clear) {
+    searchContent = searchBox.value
+  } else {
+    searchContent = ''
+  }
+  searchContent = searchContent.toLowerCase()
+  let containers = document.querySelectorAll('.container_text')
+  let containerArray = Array.from(containers)
+  containerArray.forEach(container => {
+    let matchedWord
+    let indexes = []
+    let pageContent = container.textContent.toLowerCase()
+    for (let i = 0; i < pageContent.length; i++) {
+      matchedWord = ''
+      let broken = false
+      for (let j = 0, k = i; j < searchContent.length; j++, k++) {
+        if (searchContent.charAt(j) === pageContent.charAt(k)) {
+          matchedWord += pageContent.charAt(k)
+        } else {
+          broken = true
+          break
+        }
+      } if (!broken && matchedWord === searchContent) {
+        indexes.push(i)
+      }
+    }
+    highlighter(container, indexes, searchContent.length)
+  })
+}
+
+const highlighter = (container, indexes, wordLength) => {
+  let text = container.textContent
+  let result = ''
+  let lastIndex = 0
+  indexes.forEach(start => { 
+    let end = start + wordLength
+    result += text.slice(lastIndex, start)
+    result += `<span class='highlight'>${text.slice(start, end)}</span>`
+    lastIndex = end
+  });
+  result += text.slice(lastIndex)
+  container.innerHTML = result
+}
+
+searchBox.addEventListener('keydown', (e) => {
+  e.key === 'Enter' && search(false)
+})
+searchButton.addEventListener('click', ()=> search(false))
+searchBox.addEventListener('blur', ()=> search(true))
+
+checkWindowSize()

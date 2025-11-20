@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/background_image.avif')";
+
 ////Constructor////
 let teamMates = []
 
@@ -37,7 +40,7 @@ const appendMember = (member) => {
     let memberData = document.createElement('div')
     memberData.textContent = memberPairs[i][1]
     memberData.className = (memberPairs[i][0] + ' container_text') //We might end up changing this class name//
-    memberArea.appendChild(memberData)
+    memberData.textContent !== '' && memberArea.appendChild(memberData)
   }
   listTeamMates(member)
 }
@@ -61,6 +64,46 @@ const listTeamMates = (active = defaultMessage) => {
     sidebar.appendChild(teamMate)
   });
 }
+
+///Logic for the media query menu///
+const hamburger = document.querySelector('.hamburger_menu')
+const body = document.querySelector('.main_content')
+const backgroundPicture = document.querySelector('.background_image')
+
+let sidebarOn = false
+let userSidebarInput = false
+
+const toggleSidebar = () => {
+  let nav = document.querySelector('.navigation')
+  if (!sidebarOn) {
+    nav.className = 'navigation nav_move'
+    sidebarOn = true
+  } else {
+    nav.className = 'navigation nav_hide'
+    sidebarOn = false
+  }
+}
+
+///Checks whether to show or hide the sidebar based on width///
+const checkWindowSize = () => {
+  const windowSize = window.innerWidth
+  if (windowSize < 900) {
+    sidebarOn = true
+    toggleSidebar()
+  } else {
+    sidebarOn = false
+    toggleSidebar()
+  }
+}
+
+window.addEventListener('resize', checkWindowSize)
+hamburger.addEventListener('click', toggleSidebar)
+body.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
+backgroundPicture.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
 
 ///Logic for the searchbar///
 const searchButton = document.querySelector('.search')
@@ -120,5 +163,6 @@ searchButton.addEventListener('click', ()=> search(false))
 searchBox.addEventListener('blur', ()=> search(true))
 
 
-//initializes the default message//
+//initializes the default message, and sets window size//
 appendMember(defaultMessage)
+checkWindowSize()

@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/bird_background.jpg')";
+
 const sidebar = document.querySelector(".sidebar");
 const content = document.querySelector(".welcome_container ");
 const originContent = content.innerHTML;
@@ -63,15 +66,15 @@ birdsArray.forEach(birds => {
     sidebar.appendChild(item);
 });
 
-
 // short summary
 function showShortSummary(birds) {
     content.innerHTML = `
     <h1>${birds.name}</h1>
-    <p class="container_text">Lifespan: ${birds.lifespan}</p>
-    <p class="container_text">Group: ${birds.group}</p>
     <img class="animal_img" src="${birds.image}">
-    <button class="Btn" id="readMoreBtn">Read More</button>
+    <a class="page_link container_text" href="./birds.html"> Group: ${birds.group}</a>
+    <p class="container_text">Food: ${birds.food}</p>
+    <p class="container_text">Description:${maxLength(birds.description)}</p>
+    <button class="Btn" id="readMoreBtn">Read more</button>
     `;
 
     document.querySelector("#readMoreBtn").onclick = () => showFullSummary(birds);
@@ -81,18 +84,115 @@ function showShortSummary(birds) {
 function showFullSummary(birds) {
     content.innerHTML = `
         <h1>${birds.name}</h1>
-        <p class="container_text">Lifespan: ${birds.lifespan}</p>
-        <p class="container_text">Group: ${birds.group}</p>
+        <img class="animal_img" src="${birds.image}">
+        <a class="page_link container_text" href="./birds.html"> Group: ${birds.group}</a>
         <p class="container_text">Food: ${birds.food}</p>
+        <p class="container_text">Description:${birds.description}</p>
         <p class="container_text">Length: ${birds.length}</p>
         <p class="container_text">Weight: ${birds.weight}</p>
+        <p class="container_text">Lifespan: ${birds.lifespan}</p>
         <p class="container_text">Found: ${birds.found}</p>
-        <img class="animal_img" src="${birds.image}">
-        <p class="container_text">Description:${birds.description}</p>
         
-        <button class="Btn" id="backBtn">Back for summary</button>
+        <button class="Btn" id="backBtn">Read less</button>
     `;
 
     document.querySelector("#backBtn").onclick = () => showShortSummary(birds);
 }
 
+///Logic for the media query menu///
+const hamburger = document.querySelector('.hamburger_menu')
+const body = document.querySelector('.main_content')
+const backgroundPicture = document.querySelector('.background_image')
+
+let sidebarOn = false
+let userSidebarInput = false
+
+const toggleSidebar = () => {
+  let nav = document.querySelector('.navigation')
+  if (!sidebarOn) {
+    nav.className = 'navigation nav_move'
+    sidebarOn = true
+  } else {
+    nav.className = 'navigation nav_hide'
+    sidebarOn = false
+  }
+}
+
+///Checks whether to show or hide the sidebar based on width///
+const checkWindowSize = () => {
+  const windowSize = window.innerWidth
+  if (windowSize < 900) {
+    sidebarOn = true
+    toggleSidebar()
+  } else {
+    sidebarOn = false
+    toggleSidebar()
+  }
+}
+
+window.addEventListener('resize', checkWindowSize)
+hamburger.addEventListener('click', toggleSidebar)
+body.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
+backgroundPicture.addEventListener('click', () => {
+  if (sidebarOn && window.innerWidth < 900) toggleSidebar()
+})
+
+///Logic for the searchbar///
+const searchButton = document.querySelector('.search')
+const searchBox = document.querySelector('.search_box')
+
+const search = (clear = false) => {
+  let searchContent
+  if(!clear) {
+    searchContent = searchBox.value
+  } else {
+    searchContent = ''
+  }
+  searchContent = searchContent.toLowerCase()
+  let containers = document.querySelectorAll('.container_text')
+  let containerArray = Array.from(containers)
+  containerArray.forEach(container => {
+    let matchedWord
+    let indexes = []
+    let pageContent = container.textContent.toLowerCase()
+    for (let i = 0; i < pageContent.length; i++) {
+      matchedWord = ''
+      let broken = false
+      for (let j = 0, k = i; j < searchContent.length; j++, k++) {
+        if (searchContent.charAt(j) === pageContent.charAt(k)) {
+          matchedWord += pageContent.charAt(k)
+        } else {
+          broken = true
+          break
+        }
+      } if (!broken && matchedWord === searchContent) {
+        indexes.push(i)
+      }
+    }
+    highlighter(container, indexes, searchContent.length)
+  })
+}
+
+const highlighter = (container, indexes, wordLength) => {
+  let text = container.textContent
+  let result = ''
+  let lastIndex = 0
+  indexes.forEach(start => { 
+    let end = start + wordLength
+    result += text.slice(lastIndex, start)
+    result += `<span class='highlight'>${text.slice(start, end)}</span>`
+    lastIndex = end
+  });
+  result += text.slice(lastIndex)
+  container.innerHTML = result
+}
+
+searchBox.addEventListener('keydown', (e) => {
+  e.key === 'Enter' && search(false)
+})
+searchButton.addEventListener('click', ()=> search(false))
+searchBox.addEventListener('blur', ()=> search(true))
+
+checkWindowSize()
