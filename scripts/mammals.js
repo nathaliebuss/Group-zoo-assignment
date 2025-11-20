@@ -54,7 +54,7 @@ mammalArray.forEach(mammal => {
             <p class="container_text more">Weight: ${mammal.weight}</p>
             <p class="container_text more">Found: ${mammal.found}</p>
             <p class="container_text more">Lifespan: ${mammal.lifespan}</p>
-            <button id="Btn">Read more..</button>
+            <button class="Btn">Read more..</button>
             <img class="container_text" src="${mammal.image}"></img>`;
           selectedMammal = mammal.name;
         }
