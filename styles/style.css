@@ -70,17 +70,17 @@ body {
   margin: 18px 3%;
   padding: 0 10px;
   background-color: var(--background-secondary);
-  opacity: .7;
+  opacity: 0.7;
   border-radius: 18px;
   display: flex;
   align-items: center;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .search_container:focus-within,
 .search_container:hover {
-  opacity: .9;
-  transform: scale(1.08)
+  opacity: 0.9;
+  transform: scale(1.08);
 }
 
 .search {
@@ -166,7 +166,6 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   background-color: var(--background-secondary);
   background-size: cover;
   align-items:center;
@@ -189,7 +188,7 @@ main {
   font-size: 1.2rem;
   text-align: left;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
   padding: 5px 3px;
 }
 
@@ -214,14 +213,15 @@ main {
   text-decoration: underline;
 }
 
-
-
 .container_text {
   font-size: 1.5rem;
   padding: 8px;
   margin:0;
 }
 
+.highlight {
+  background-color: yellow;
+}
 
 .Btn {
   background-color:var(--background-tertiary);
@@ -238,7 +238,6 @@ main {
   text-align:center;
   cursor:pointer;
 }
-
 
 .footer {
   color: var(--background-secondary);
