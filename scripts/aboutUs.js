@@ -1,3 +1,6 @@
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/background_image.avif')";
+
 ////Constructor////
 let teamMates = []
 

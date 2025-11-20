@@ -1,3 +1,7 @@
+
+document.querySelector(".background_image").style.backgroundImage =
+    "url('./images/mammal_background.jpg')";
+
 //CONSTRUCTOR//
 function Mammals(name, lifespan, group, food, description, length, weight, found, image) { 
     this.name = name,
@@ -46,16 +50,16 @@ mammalArray.forEach(mammal => {
         mammalsGroup.classList.add("active_item");
         document.querySelector(".welcome_container").innerHTML = `
             <h1>${mammal.name}</h1>
-            <p class="container_text">Group: ${mammal.group}</p>
+            <img class="animal_img" src="${mammal.image}"></img>
+            <a class="page_link container_text" href="./mammals.html"> Group: ${mammal.group}</a>
             <p class="container_text">Food: ${mammal.food}</p>
             <p class="container_text less">Description: ${textLength(mammal.description)}</p>
             <p class="container_text more">Description: ${mammal.description}</p>
             <p class="container_text more">Length: ${mammal.length}</p>
             <p class="container_text more">Weight: ${mammal.weight}</p>
-            <p class="container_text more">Found: ${mammal.found}</p>
             <p class="container_text more">Lifespan: ${mammal.lifespan}</p>
-            <button id="Btn">Read more..</button>
-            <img class="container_text" src="${mammal.image}"></img>`;
+            <p class="container_text more">Found: ${mammal.found}</p>
+            <button class="Btn">Read more..</button>`;
           selectedMammal = mammal.name;
         }
         
@@ -73,13 +77,69 @@ mammalArray.forEach(mammal => {
       if (more[0].style.display === "none") { //added index 0 because we are only checking if one element is hidden or not
         more.forEach(text => text.style.display = "block");
         less.forEach(text => text.style.display = "none");
-        toggle.textContent = "Show less..";
+        toggle.textContent = "Read Less";
       } else {
         more.forEach(text => text.style.display = "none");
         less.forEach(text => text.style.display = "block");
-        toggle.textContent = "Show more..";
+        toggle.textContent = "Read More";
       }
     
     })}
   })
 });
+
+///Logic for the searchbar///
+const searchButton = document.querySelector('.search')
+const searchBox = document.querySelector('.search_box')
+
+const search = (clear = false) => {
+  let searchContent
+  if(!clear) {
+    searchContent = searchBox.value
+  } else {
+    searchContent = ''
+  }
+  searchContent = searchContent.toLowerCase()
+  let containers = document.querySelectorAll('.container_text')
+  let containerArray = Array.from(containers)
+  containerArray.forEach(container => {
+    let matchedWord
+    let indexes = []
+    let pageContent = container.textContent.toLowerCase()
+    for (let i = 0; i < pageContent.length; i++) {
+      matchedWord = ''
+      let broken = false
+      for (let j = 0, k = i; j < searchContent.length; j++, k++) {
+        if (searchContent.charAt(j) === pageContent.charAt(k)) {
+          matchedWord += pageContent.charAt(k)
+        } else {
+          broken = true
+          break
+        }
+      } if (!broken && matchedWord === searchContent) {
+        indexes.push(i)
+      }
+    }
+    highlighter(container, indexes, searchContent.length)
+  })
+}
+
+const highlighter = (container, indexes, wordLength) => {
+  let text = container.textContent
+  let result = ''
+  let lastIndex = 0
+  indexes.forEach(start => { 
+    let end = start + wordLength
+    result += text.slice(lastIndex, start)
+    result += `<span class='highlight'>${text.slice(start, end)}</span>`
+    lastIndex = end
+  });
+  result += text.slice(lastIndex)
+  container.innerHTML = result
+}
+
+searchBox.addEventListener('keydown', (e) => {
+  e.key === 'Enter' && search(false)
+})
+searchButton.addEventListener('click', ()=> search(false))
+searchBox.addEventListener('blur', ()=> search(true))
