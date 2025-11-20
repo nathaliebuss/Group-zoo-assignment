@@ -66,7 +66,7 @@ function showFullSummary(reptile) {
         <img class="animal_img" src="${reptile.image}">
         <a class="page_link container_text" href="./reptiles.html"> Group: ${reptile.group}</a>
         <p class="container_text"> Food: ${reptile.food}</p>
-        <p class="container_text">${reptile.description}</p>
+        <p class="container_text"> Description: ${reptile.description}</p>
         <p class="container_text"> Length: ${reptile.length}</p>
         <p class="container_text"> Weight: ${reptile.weight}</p>
         <p class="container_text"> Lifespan: ${reptile.lifespan}</p>
