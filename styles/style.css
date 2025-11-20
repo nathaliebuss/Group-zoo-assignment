@@ -282,6 +282,7 @@ h1 {
   text-align: center;
   cursor: pointer;
   transition: all .4s;
+  font-family: "quicksand", sans-serif;
 }
 
 .Btn:hover {
