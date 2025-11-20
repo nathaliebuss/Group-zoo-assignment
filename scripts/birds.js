@@ -1,7 +1,6 @@
 const sidebar = document.querySelector(".sidebar");
 const content = document.querySelector(".welcome_container ");
-
-const originalContent = content.innerHTML;
+const originContent = content.innerHTML;
 
 
 function Birds(name, lifespan, group, food, length,  weight, found, image,description) {
@@ -35,7 +34,7 @@ let birdsArray = [
 
 const maxLength = desc => desc.slice(0, 200) + (desc.length > 200 ? "..." : "");
 
-
+let selectedBirdName = "null"
 birdsArray.forEach(birds => {
     let item = document.createElement("div");
         item.classList.add("sidebar_item");
@@ -43,20 +42,25 @@ birdsArray.forEach(birds => {
 
         item.addEventListener("click", (e) => {
           e.stopPropagation();
+          
+          if(selectedBirdName === birds.name){
+            content.innerHTML = originContent;
+            item.classList.remove("active_item");
 
-        document.querySelectorAll(".sidebar_item").forEach(i => i.classList.remove("active_item"));
-        item.classList.add("active_item");
-        
-        showShortSummary(birds);
+            selectedBirdName = "null";
+          }
+
+          else{
+            document.querySelectorAll(".sidebar_item").forEach(i => i.classList.remove("active_item"))
+            
+            item.classList.add("active_item");
+            showShortSummary(birds);
+            selectedBirdName = birds.name;
+            
+          }
     });
-
-    //雙基
-    item.addEventListener('dblclick', function(e){
-        e.stopPropagation();
-        content.innerHTML = originalContent;
-        document.querySelectorAll("sidebar_item").forEach(i => i.classList.remove("active_item"));});
       
-        sidebar.appendChild(item);
+    sidebar.appendChild(item);
 });
 
 
