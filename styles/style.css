@@ -154,6 +154,7 @@ main {
   text-align: left;
   cursor: pointer;
   transition: all .4s;
+  
 }
 
 .sidebar_item:hover,
@@ -164,6 +165,24 @@ main {
 .welcome_container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+
+  background-color: var(--background-secondary);
+  background-size: cover;
+  align-items:center;
+  text-align: center;
+  padding:20px;
+  width:80%;
+  inset: 8%;
+  border-radius: 16px;
+}
+
+.intro_text{
+  text-align: center;
+  font-size: 1.5rem;
+  width:90%;
+  margin:0 auto;
+
 }
 
 .animal_item {
@@ -175,14 +194,10 @@ main {
 }
 
 .animal_img {
-  /* width: 500px;
-  height: 500px; */
   object-fit: contain;
   object-position: center;
-
   max-width:300px;
   width:100%;
-
   height:auto;
   border-radius:8px;
   aspect-ratio: 1 / 1;
@@ -199,43 +214,34 @@ main {
   text-decoration: underline;
 }
 
+
+
 .container_text {
   font-size: 1.5rem;
   padding: 8px;
+  margin:0;
 }
 
+
+.Btn {
+  background-color:var(--background-tertiary);
+  color:var(--color-primary);
+  display:block;
+  margin-top:3%;
+  margin-right:auto;
+  margin-left:auto;
+
+  padding:15px 42px;
+  border-radius: 12px;
+  border:none;
+  text-decoration: none;
+  text-align:center;
+  cursor:pointer;
+}
 
 
 .footer {
   color: var(--background-secondary);
   text-align: center;
   padding: 16px;
-}
-
-/* birds */
-.content_container {
-  background-color: var(--background-secondary);
-  
-  width:min(800px, 90vw);
-  padding:20px;
-
-  inset:8%;
-  border-radius: 12px;
-  align-items:center;
-  text-align: center;
-}
-
-.read_more{
-  background-color: var(--background-primary);
-  color:var(--color-primary);
-  display:block;
-  margin-top:3%;
-  margin-right:auto;
-  margin-left:auto;
-  padding:15px 42px;
-  border-radius: 12px;
-  text-decoration: none;
-  border:none;
-  text-align:center;
-  cursor:pointer;
 }
