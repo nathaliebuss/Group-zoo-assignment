@@ -320,11 +320,6 @@ h1 {
     top: 0;
   }
 
-  .header_logo {
-    transform: scale(0.7);
-    padding: 0;
-  }
-
   .navigation {
     border-top: var(--background-tertiary) solid 1px;
     display: flex;
