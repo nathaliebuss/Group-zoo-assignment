@@ -238,10 +238,10 @@ h1 {
 }
 
 .animal_img {
-  object-fit: contain;
   object-position: center;
   max-width: 300px;
-  height: auto;
+  height: 300px;
+  width:100%;
   border-radius: 8px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
